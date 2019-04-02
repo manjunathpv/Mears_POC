@@ -2,7 +2,8 @@
 
 const mysqlHost = process.env.MYSQL_HOST;
 const mysqlUser = process.env.MYSQL_USER;
-const mysqlPass = process.env.MYSQL_PASS
+const mysqlPass = process.env.MYSQL_PASS;
+const mysqlDB = process.env.MYSQL_DB;
 
 // const preferences = {
 //     tempClientId: 1
@@ -17,5 +18,6 @@ module.exports = {
     sessionSecret: sessionSecret,
     mysqlHost: mysqlHost,
     mysqlUser: mysqlUser,
-    mysqlPass: mysqlPass
+    mysqlPass: mysqlPass,
+    mysqlDB: mysqlDB
 }

@@ -5,37 +5,35 @@ const config = require('../config')
 
 var con = mysql.createConnection({
     host: config.mysqlHost,
-    user:config.mysqlUser,
-    password:config.mysqlPass
+    user: config.mysqlUser,
+    password: config.mysqlPass,
+    database: config.mysqlDB
 });
 
-con.connect(function(err)
-{
-    if(err) throw err;
+con.connect(function (err) {
+    if (err) throw err;
     console.log("Connected to the database!!!");
 })
-// const Cloudant = require('cloudant');
-// const _ = require('lodash');
 
-// const cloudantUrl = process.env.IBM_CLOUDANT_URL;
+con.query(`CREATE TABLE IF NOT EXISTS 
+Users
+(
+UserID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+FirstName varchar(255) NOT NULL,
+LastName varchar(255),
+Email varchar(255),
+Password varchar(255),
+Created_At Date,
+UNIQUE KEY unique_email (email)
+)
+`, function (err) {
+        if (err) {
+            console.log('Something wrong with the SQL.\nThe error is \n', err)
+        }
+        console.log('Table created successfully')
+    })
 
-// const cloudant = Cloudant({ url: cloudantUrl });
-
-// const databases = {
-//     conversations: 'conversations',
-//     skitter: 'skitter'
-// };
-
-// const getAll = (database, callback) => {
-//     const db = cloudant.db.use(database);
-//     db.list({ include_docs: true }, (error, data) => {
-//         if (error) {
-//             console.log('Error: Unable to get documant with ', error);
-//             return callback(error, null);
-//         }
-//         return callback(null, { data: formatDbData(data) });
-//     });
-// };
+    const createUser
 
 // const get = (database, params, callback) => {
 //     const db = cloudant.db.use(database);
