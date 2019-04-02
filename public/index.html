@@ -1,0 +1,25 @@
+<html>
+<head>
+  <base href="/">
+  <title>Skitter Chatbot</title>
+  <meta property="og:title" content="Skitter Chatbot" />
+  <link rel="stylesheet" href="css/cogni.css">
+</head>
+<body>
+  <div id="mainContent">
+    <div>
+      <div class="chatbotCol">
+        <div id="scrollingChat"></div>
+        <label for="textInput" >
+          <input id="textInput" placeholder="Type here" type="text"
+            onkeydown="cognichatpannel.inputKeyDown(event, this)">
+        </label>
+      </div>
+    </div>
+  <script src="js/common.js"></script>
+  <script src="js/cognideskapi.js"></script>
+  <script src="js/cognichatbot.js"></script>
+  <script src="js/global.js"></script>
+  
+</body>
+</html>

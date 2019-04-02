@@ -1,0 +1,23 @@
+applications:
+  - name: cogni-server
+    random-route: true
+    memory: 256M
+    disk_quota: 500M
+    instances: 1
+    domain: eu-gb.mybluemix.net
+    random-route: true
+    services:
+    - cognidesk
+    env:
+      NODE_RED_STORAGE_NAME: cognidesk
+      CONVERSATION_PASSWORD: 7ASJIbCMSEIA
+      CONVERSATION_USERNAME: 4b0be47e-09d6-4878-804a-7627ce6b7363
+      IBM_CLOUDANT_URL: https://bovernezerecereatennyues:14384740b96a2e305e0adbf6995125130123409c@823c2b95-6a19-4749-8716-bdede4c5bf5b-bluemix.cloudant.com
+      ICD_BASE_URL: https://testcognidesknew.eu-gb.mybluemix.net/
+      ICD_COOKIE: "express.sid=eyJwYXNzcG9ydCI6eyJ1c2VyIjp7InVzZXJuYW1lIjoibWF4YWRtaW4iLCJqc2Vzc2lvbmlkIjoiMDAwMEJXTjkxMzk1VEtFaklwQUNnV3RlZ1RfOjE3djdhZzA1bTsgUGF0aD0vbWF4aW1vX3E2ZWY7IFNlY3VyZTsgSHR0cE9ubHkiLCJsZGFwYXV0aCI6MCwidG9rZW4iOnsiY29va2llc3RyaW5nIjoiSlNFU1NJT05JRD0wMDAwQldOOTEzOTVUS0VqSXBBQ2dXdGVnVF86MTd2N2FnMDVtOyBQYXRoPS9tYXhpbW9fcTZlZjsgU2VjdXJlOyBIdHRwT25seSIsImFjY2VzcyI6eyJ1c2VycyI6MSwidGlja2V0cyI6MX19LCJpbmZvIjp7InBlcnNvbmlkIjoiTUFYQURNSU4iLCJpZCI6Mywic3RhdHVzIjoiQUNUSVZFIiwiZGlzcGxheW5hbWUiOiJNYXggQWRtaW4iLCJ1c2VyaWQiOiJNQVhBRE1JTiIsImxvZ2luaWQiOiJtYXhhZG1pbiIsImxvZ2luZW5hYmxlZCI6IkFDVElWRSIsInJvbGVzIjpbIk1BWEFETUlOIiwiTUFYRVZFUllPTkUiLCJQTVJFUVVFU1RFUiJdfX19fQ==; express.sid.sig=vsgO0wUK-KdwCWyIld-Jieusafs"
+      NODE_RED_BASE_URL: https://skitter.eu-gb.mybluemix.net/
+      WORKSPACE_ID: 30198efb-0715-41bf-bb8c-44af6359180d
+declared-services:
+  cognidesk:
+    label: cloudantNoSQLDB
+    plan:  Lite

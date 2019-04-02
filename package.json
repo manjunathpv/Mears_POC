@@ -1,0 +1,42 @@
+{
+  "name": "cognidesk-skitter",
+  "description": "Node.js based web app to use  Conversation API .",
+  "version": "0.1.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "babel-node --presets=env server.js",
+    "dev": "nodemon --exec babel-node --presets=env server.js"
+  },
+  "repository": {
+    "type": "bitbucket",
+    "url": "https://skitterrepo@bitbucket.org/skittergit/cogni_desk_repo.git"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "cloudant": "^1.10.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "ldapjs": "^1.0.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "morgan": "^1.9.0",
+    "mysql2": "^1.5.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "request": "^2.83.0",
+    "watson-developer-cloud": "^3.0.3",
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^1.7.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "engines": {
+    "node": ">= 6.9.x",
+    "npm": "> 3.10.x"
+  }
+}
