@@ -5,5 +5,3 @@ CREATE USER 'mearspoc'@'localhost' IDENTIFIED BY 'mears';
 GRANT ALL PRIVILEGES ON `mearspoc`.* TO 'mearspoc'@'localhost';
 
 FLUSH PRIVILEGES;
-
-SHOW GRANTS mearspoc;
