@@ -2,7 +2,6 @@
 
 import _ from 'lodash';
 import express from 'express';
-import bodyParser from 'body-parser';
 
 import cogniUtil from './../helpers/cogni-util';
 import auth from './../handlers/auth';
@@ -11,7 +10,7 @@ const logger = cogniUtil.logger;
 const errors = cogniUtil.errorHandler;
 const responseBuilder = cogniUtil.responseBuilder;
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.post('/login', (req, res, next) => {
   if (!_.has(req.body, 'username') || !_.has(req.body, 'password')) {
@@ -19,6 +18,7 @@ app.post('/login', (req, res, next) => {
     return responseBuilder(req, res, errors.missingParameter(true), null);
   }
   auth.passport.authenticate('login', (error, sessionDetail) => {
+    console.log(sessionDetail)
     if (error) {
       logger.error('Error: Unable to authenticate user with error: ', error);
       return responseBuilder(req, res, errors.formatErrorForWire(error), null);

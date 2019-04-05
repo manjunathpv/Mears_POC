@@ -33,7 +33,7 @@ UNIQUE KEY unique_email (email)
         console.log('Table created successfully')
     })
 
-    const createUser
+    // const createUser
 
 // const get = (database, params, callback) => {
 //     const db = cloudant.db.use(database);
