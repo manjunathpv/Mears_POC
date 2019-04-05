@@ -2,6 +2,8 @@
 
 import 'babel-core/register'
 import 'babel-polyfill'
+
+import config from './config'
 const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
@@ -9,8 +11,6 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
-
-import config from './config'
 const db = require('./helpers/db');
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
