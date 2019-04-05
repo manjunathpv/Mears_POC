@@ -2,7 +2,6 @@
 
 const moment = require('moment')
 
-const workflow = require('./../handlers/workflow')
 const crypto = require('./crypto')
 
 const sessionHashSpliter = ':'

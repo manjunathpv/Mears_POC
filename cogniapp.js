@@ -11,7 +11,7 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
-const db = require('./helpers/db');
+const db = require('./helpers/db')
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 const ticketRoutes = require('./routes/tickets')
@@ -20,7 +20,7 @@ const accesslogDir = process.env.ACCESS_LOG_FILE_DIR
 const accesslogFileName = process.env.ACCESS_LOG_FILE_NAME
 
 if (!fs.existsSync(accesslogDir)) {
-    fs.mkdirSync(accesslogDir)
+  fs.mkdirSync(accesslogDir)
 }
 
 const app = express()
@@ -42,11 +42,11 @@ app.use(express.json())
 app.use(morgan('combined', { stream: accessLogStream }))
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, sessionId, session_id, Accept")
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT')
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    next()
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, sessionId, session_id, Accept')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT')
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  next()
 })
 
 app.use('/auth', authRoutes)

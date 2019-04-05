@@ -2,11 +2,10 @@
 
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const _ = require('lodash')
+// const ls = require('lodash')
 
 const cogniUtil = require('./../helpers/cogni-util')
 const sessions = require('./../helpers/sessions')
-const workflow = require('./workflow')
 const userBase = require('./user-base')
 
 const logger = cogniUtil.logger
@@ -20,13 +19,13 @@ passport.use('login', new LocalStrategy(
     passReqToCallback: true
   }, (req, username, password, callback) => {
     logger.info('authenticating user with username: ', username, 'password: ', password)
-    workflow.authentication({ username: username, password: password }, (error) => {
+    userBase.authentication({ username: username, password: password }, (error) => {
       if (error) {
         logger.error('Error: authenticating the user', error)
         callback(error, null)
         return
       }
-      workflow.searchUser(username, (ldapError, ldapResult) => {
+      userBase.searchUser(username, (ldapError, ldapResult) => {
         if (error) {
           logger.error('Error: authenticating. Unable to find the user with username: ', username, ldapError)
           callback(error, null)

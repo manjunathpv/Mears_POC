@@ -6,7 +6,6 @@ import _ from 'lodash'
 import cogniUtil from './../helpers/cogni-util'
 import requestHelper from './../helpers/request-helper'
 import userBase from './../handlers/user-base'
-import workflow from './../handlers/workflow'
 import auth from './../handlers/auth'
 
 const logger = cogniUtil.logger

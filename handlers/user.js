@@ -1,9 +1,9 @@
 'use strict'
 
-import workflow from './workflow'
+const userBase = require('./user-base')
 
 const userStatus = (userDetail, callback) => {
-  workflow.userStatus(userDetail, callback)
+  userBase.userStatus(userDetail, callback)
 }
 
 module.exports = Object.assign(module.exports, {
