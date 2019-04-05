@@ -1,18 +1,18 @@
-'use strict';
+'use strict'
 
 const mysql = require('mysql')
 const config = require('../config')
 
 var con = mysql.createConnection({
-    host: config.mysqlHost,
-    user: config.mysqlUser,
-    password: config.mysqlPass,
-    database: config.mysqlDB
-});
+  host: config.mysqlHost,
+  user: config.mysqlUser,
+  password: config.mysqlPass,
+  database: config.mysqlDB
+})
 
 con.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected to the database!!!");
+  if (err) throw err
+  console.log('Connected to the database!!!')
 })
 
 con.query(`CREATE TABLE IF NOT EXISTS 
@@ -27,13 +27,13 @@ Created_At Date,
 UNIQUE KEY unique_email (email)
 )
 `, function (err) {
-        if (err) {
-            console.log('Something wrong with the SQL.\nThe error is \n', err)
-        }
-        console.log('Table created successfully')
-    })
+  if (err) {
+    console.log('Something wrong with the SQL.\nThe error is \n', err)
+  }
+  console.log('Table created successfully')
+})
 
-    // const createUser
+// const createUser
 
 // const get = (database, params, callback) => {
 //     const db = cloudant.db.use(database);
