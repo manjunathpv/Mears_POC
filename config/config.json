@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "",
+        "password": null,
+        "database": "mears_poc",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "./scripts/mears_poc.db"
+    },
+    "test": {
+        "username": "",
+        "password": null,
+        "database": "",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "./data/database.sqlite"
+    },
+    "production": {
+        "username": "",
+        "password": null,
+        "database": "",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "./data/database.sqlite"
+    }
+}

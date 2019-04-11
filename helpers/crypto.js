@@ -6,14 +6,14 @@ const algorithm = 'aes-256-ctr'
 const key = 'sample-key'
 
 const encrypt = (text) => {
-  var cipher = crypto.createCipher(algorithm, key)
+  var cipher = crypto.createCipheriv(algorithm, key)
   var crypted = cipher.update(text, 'utf8', 'hex')
   crypted += cipher.final('hex')
   return crypted
 }
 
 const decrypt = (text) => {
-  var decipher = crypto.createDecipher(algorithm, key)
+  var decipher = crypto.createDecipheriv(algorithm, key)
   var dec = decipher.update(text, 'hex', 'utf8')
   dec += decipher.final('utf8')
   return dec

@@ -13,6 +13,34 @@ const errors = cogniUtil.errorHandler
 const responseBuilder = cogniUtil.responseBuilder
 const app = express()
 
+app.get('/getuser/:id', (req, res) => {
+  if (!_.has(req.params, 'id')) {
+    logger.error('Error: Missing or invalid parameters.')
+    return responseBuilder(req, res, errors.missingParameter(true), null)
+  }
+  // userBase.userStatus(req.body, (error, userStatus) => {
+  //   if (error) {
+  //     return responseBuilder(req, res, errors.formatErrorForWire(error), null)
+  //   }
+  //   responseBuilder(req, res, null, userStatus)
+  // })
+  res.json({ 'message': 'The user is Manjunath PV' })
+})
+
+app.get('/getallusers', (req, res) => {
+  if (!_.has(req.params, 'id')) {
+    logger.error('Error: Missing or invalid parameters.')
+    return responseBuilder(req, res, errors.missingParameter(true), null)
+  }
+  // userBase.userStatus(req.body, (error, userStatus) => {
+  //   if (error) {
+  //     return responseBuilder(req, res, errors.formatErrorForWire(error), null)
+  //   }
+  //   responseBuilder(req, res, null, userStatus)
+  // })
+  res.json({ 'message': 'The user is Manjunath PV' })
+})
+
 app.post('/user-status', (req, res) => {
   if (!_.has(req.body, 'username') || !_.has(req.body, 'phone_number')) {
     logger.error('Error: Missing or invalid parameters.')
@@ -31,13 +59,6 @@ app.post('/unlock-account', (req, res) => {
     logger.error('Error: Missing or invalid parameters.')
     return responseBuilder(req, res, errors.missingParameter(true), null)
   }
-  workflow.unlockAccount({ username: req.body.username }, (error) => {
-    if (error) {
-      logger.error('Error: Unable to authenticate user with error: ', error)
-      return responseBuilder(req, res, errors.formatErrorForWire(error), null)
-    }
-    responseBuilder(req, res, null, null)
-  })
 })
 
 app.post('/get-user', auth.checkAuthentication, (req, res) => {

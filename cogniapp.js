@@ -9,6 +9,7 @@ const fs = require('fs')
 const path = require('path')
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const models = require('./models')
 // const session = require('express-session')
 const passport = require('passport')
 // const db = require('./helpers/mysqldb');
@@ -24,8 +25,18 @@ if (!fs.existsSync(accesslogDir)) {
   fs.mkdirSync(accesslogDir)
 }
 
+models.sequelize.sync().then(function () {
+  console.log('connected to database')
+}).catch(function (err) {
+  console.log(err)
+})
+
 const app = express()
-// app.use(express.static('./public'))
+app.use(function (req, res, next) {
+  console.log('first middleware')
+  res.json(0)
+  next()
+})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser(config.sessionSecret))

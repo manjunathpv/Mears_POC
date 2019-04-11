@@ -19,8 +19,8 @@ const buildSession = (user) => {
   return { session_id: crypto.encrypt(_createSessionHash(user.username)) }
 }
 
-const getUserInfoFromSession = (session_id, callback) => {
-  const username = _explodeSessionHash(crypto.decrypt(session_id))
+const getUserInfoFromSession = (sessionId, callback) => {
+  const username = _explodeSessionHash(crypto.decrypt(sessionId))
   workflow.searchUser(username, (error, user) => {
     if (error) {
       console.log('Error: Unable to get the user with email: ', email)

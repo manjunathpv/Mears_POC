@@ -1,4 +1,4 @@
-import cogniUtil from './../helpers/cogni-util'
+import cogniUtil from '../helpers/cogni-util'
 
 var sqlite3 = require('sqlite3').verbose()
 const logger = cogniUtil.logger

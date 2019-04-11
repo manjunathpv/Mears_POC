@@ -33,6 +33,14 @@ module.exports = {
     )
     return formatForWire ? this.formatErrorForWire(error) : error
   },
+  FormatError: function (formatForWire) {
+    const error = new CustomError(
+      'Content Format error',
+      responseCodes.badRequest,
+      'FormatError'
+    )
+    return formatForWire ? this.formatErrorForWire(error) : error
+  },
   resourceNotFound: function (formatForWire) {
     const error = new CustomError('Resource Not Found', responseCodes.notFound, 'ResourceNotFound')
     return formatForWire ? this.formatErrorForWire(error) : error
